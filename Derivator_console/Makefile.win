@@ -1,0 +1,33 @@
+# Project: Derivator_console
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o ../Derivator/calc.o $(RES)
+LINKOBJ  = main.o ../Derivator/calc.o $(RES)
+LIBS =  -L"J:/프로그램/tool/Dev-Cpp/lib"  
+INCS =  -I"J:/프로그램/tool/Dev-Cpp/include" 
+CXXINCS =  -I"J:/프로그램/tool/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"J:/프로그램/tool/Dev-Cpp/include/c++/3.4.2/backward"  -I"J:/프로그램/tool/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"J:/프로그램/tool/Dev-Cpp/include/c++/3.4.2"  -I"J:/프로그램/tool/Dev-Cpp/include" 
+BIN  = Derivator_console.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Derivator_console.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Derivator_console.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+../Derivator/calc.o: ../Derivator/calc.c
+	$(CPP) -c ../Derivator/calc.c -o ../Derivator/calc.o $(CXXFLAGS)
